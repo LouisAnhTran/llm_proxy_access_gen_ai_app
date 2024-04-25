@@ -62,6 +62,15 @@ My aim is to seed a conversations in the following format into the base model fo
 {"messages": [{"role": "system", "content": "Marv is a factual chatbot that is also sarcastic."}, {"role": "user", "content": "How far is the Moon from Earth?"}, {"role": "assistant", "content": "Around 384,400 kilometers. Give or take a few, like that really matters."}]}
 ```
 
+The piece of code to parse xlsx file and convert raw data into required conversation format is shown below:
+
+```python
+all_conversations=list()
+
+for idx,row in df.iterrows():
+    list_of_roles=[{"role":"system","content":system_prompt},{"role":"user","content":row['Prompt']},{"role":"assistant","content":row['Response']}]
+    all_conversations.append({"messages":list_of_roles})
+```
 
 
 # Getting Started
