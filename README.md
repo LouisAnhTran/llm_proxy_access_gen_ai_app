@@ -647,11 +647,11 @@ curl --location 'http://localhost:8000/send_inference' \
 
 # Resources
 
-exception handling is defined under [/src/proxy/utils/exception.py](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/blob/main/src/proxy/utils/exception.py)
-OpenAIAPI call is defined under [src/proxy/utils/handle_openai_api_call.py](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/blob/main/src/proxy/utils/handle_openai_api_call.py)
-helpers functions are defined under [src/proxy/utils/helpers.py](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/blob/main/src/proxy/utils/helpers.py)
-routes handlers are defined under [src/proxy/routes.py](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/blob/main/src/proxy/routes.py)
-fine tuning model logic is defined under [fine_tune_model.ipynb](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/blob/main/fine_tune_model.ipynb)
+- exception handling is defined under [/src/proxy/utils/exception.py](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/blob/main/src/proxy/utils/exception.py)
+- OpenAIAPI call is defined under [src/proxy/utils/handle_openai_api_call.py](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/blob/main/src/proxy/utils/handle_openai_api_call.py)
+- helpers functions are defined under [src/proxy/utils/helpers.py](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/blob/main/src/proxy/utils/helpers.py)
+- routes handlers are defined under [src/proxy/routes.py](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/blob/main/src/proxy/routes.py)
+- fine tuning model logic is defined under [fine_tune_model.ipynb](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/blob/main/fine_tune_model.ipynb)
 
 # References
 
