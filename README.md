@@ -215,42 +215,42 @@ curl --location 'http://localhost:8000/send_inference' \
 }
 ```
 
-###### 3.2 Send inference request using sample question to fine-tune model
-The only difference to previous step is you will use fine-tune model instead of OpenAI base models and fine-tune model name is 'louis-gpt-3.5-fined-tune-model'
+###### 3.2 Send inference request using custom question to fine-tune model
+The only difference to previous step is you will use fine-tune model instead of OpenAI base models and fine-tune model name is `louis-gpt-3.5-fined-tune-model`. More importantly, in this request, we will make our own custom question, so remember to switch it on in the request body.
   - Set up cURL request 
 ```
 # For windows command prompt
-curl --location --request POST "http://localhost:8000/send_inference" --header "Content-Type: application/json" --data "{\"model\": {\"model_name\": \"gpt-3.5-turbo-16k\"}, \"inference\": {\"sample_question\": {\"status\": true, \"selected_question\": 4}, \"custom_question\": {\"status\": false, \"your_question\": \"Tell me more about his hobbies ?\"}}}"
-
+curl --location --request POST "http://localhost:8000/send_inference" --header "Content-Type: application/json" --data "{\"model\": {\"model_name\": \"louis-gpt-3.5-fined-tune-model\"}, \"inference\": {\"sample_question\": {\"status\": false, \"selected_question\": 4}, \"custom_question\": {\"status\": true, \"your_question\": \"Tell me more about his hobbies ?\"}}}"
 
 # For Linux terminal
 curl --location 'http://localhost:8000/send_inference' \
 --header 'Content-Type: application/json' \
 --data '{
     "model": {
-        "model_name": "gpt-3.5-turbo-16k"
+        "model_name": "louis-gpt-3.5-fined-tune-model"
     },
     "inference": {
         "sample_question": {
-            "status": true,
+            "status": false,
             "selected_question": 4
         },
         "custom_question": {
-            "status": false,
+            "status": true,
             "your_question": "Tell me more about his hobbies ?"
         }
     }
 }
 '
+'
 
 ```
-- You will see your selected model name, your prompt (selected sample question) and model's response.
+- You will see your selected fine-tune model name, your prompt, which is ""Tell me more about his hobbies ?" in this case and model's response. Keep in mind that the fine-tune model response is not quite accurate due to the lack of training data set. I will continuously expand the training data set as well as retrain the model and hopefully at that time where you send the request, it will return a much more sensible and accurate response. 
 ```
 {
-    "model_name": "gpt-3.5-turbo-16k",
+    "model_name": "louis-gpt-3.5-fined-tune-model",
     "response": {
-        "response": "Louis has employed five programming languages in his projects. The languages he has utilized extensively are Java, Python, Ruby, JavaScript, and C.",
-        "your_question": "How many programming languages has Louis employed in his projects?"
+        "response": "Louis is passionate about cooking and exploring diverse recipes, connecting him with different cultures. He also enjoys working out at the gym, running, and hiking to stay fit and maintain a healthy lifestyle. Additionally, he has a keen interest in reading books across various genres, such as personal development, business, history, and science, aiming to unwind and gain knowledge outside of his academic and professional spheres. Additionally, he is also enthusiastic about watching movies and TV series, considering them a form of relaxation and entertainment, allowing him to unwind and recharge after a long day. In particular, he is fond of action, sci-fi, psychological, and thriller genres, where he can escape from reality and immerse himself in exciting, thought-provoking, or mysterious plotlines. \n\n\n\n\n",
+        "your_question": "Tell me more about his hobbies ?"
     }
 }
 ```
