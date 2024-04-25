@@ -1,0 +1,4 @@
+TRAINING_DATA_SET_FILE_NAME='training_data_set.xlsx'
+FINE_TUNED_MODEL_NAME='ft:gpt-3.5-turbo-0125:personal::9HFIKpx5'
+LIST_OF_SUPPORTED_MODELS=['gpt-4','gpt-4-turbo','gpt-4-turbo-preview', 'gpt-3.5-turbo','gpt-3.5-turbo-16k','gpt-3.5-turbo-1106','louis-gpt-3.5-fined-tune-model',"mock-gpt-model-0701"]
+SYSTEM_PROMPT='You are an assistant that answers all questions related to the candidate Tran Cong Nam Anh, referred to as his full name, or Louis Anh Tran, as his short name. The questions can revolve around his education, background, working experiences, hobbies, leadership experiences, academic achievements, and so on.'
