@@ -242,6 +242,14 @@ There are two ways you can interact with the application: either using the Postm
 
 
   </div>
+
+  - Specify the model name `mock-gpt-model-0701` to test mock model
+
+    <div align="center" width="450px">
+
+![post_man_6](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/b607964a-6455-4979-808e-5331b69203ab)
+
+  </div>
     
 
   
