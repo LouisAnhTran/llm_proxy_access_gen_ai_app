@@ -79,7 +79,7 @@ Simply run the following command to install all required packages
 pip install -r requirements.txt
 ```
 
-# Run The Application $ Sending Inference Request 
+# Run The Application & Sending Inference Request 
 
 ## Local Development 
 
@@ -176,7 +176,7 @@ curl --location 'http://localhost:8000/get_sample_questions'
 In previous step, you can select one question from the list of questions based on its corresponding number.
 For example, question 4 corresponds to question "How many programming languages has Louis employed in his projects?".
 From previous step, you also know the list of supported model, so you can choose one and specify it in the request body, e.g gpt-3.5-turbo-16k.
-Users can make a custom questions or use the sample question, they can explicit specify that in body request, e.g set true in sample question's status field to use sample question and 
+Users can make a custom questions or use the sample question, they can explicit specify that in body request, e.g set true in sample question's status field to use sample question and vice versa. 
   - Set up cURL request 
 ```
 # For windows command prompt
@@ -255,6 +255,148 @@ curl --location 'http://localhost:8000/send_inference' \
 }
 ```
 
+# Error handling:
+Many custom exception handlers have been defined to capture any errors that might occur during client-server interaction.
+## Custom Exception Types:
+```python
+class InvalidRequestBody(Exception):
+    """Custom exception class."""
+    
+    def __init__(self, message="An error occurred."):
+        self.message = message
+        super().__init__(self.message)
 
+class InvalidModelName(Exception):
+    """Custom exception class."""
+    
+    def __init__(self, message="An error occurred."):
+        self.message = message
+        super().__init__(self.message)
+
+class InvalidModeModelSelection(Exception):
+    """Custom exception class."""
+    
+    def __init__(self, message="An error occurred."):
+        self.message = message
+        super().__init__(self.message)
+
+class NotSeeListOfQuestionYet(Exception):
+    """Custom exception class."""
+    
+    def __init__(self, message="An error occurred."):
+        self.message = message
+        super().__init__(self.message)
+
+class ErrorSendingInferenceOpenAIModel(Exception):
+    """Custom exception class."""
+    
+    def __init__(self, message="An error occurred."):
+        self.message = message
+        super().__init__(self.message)
+
+class ErrorSendingInferenceMockModel(Exception):
+    """Custom exception class."""
+    
+    def __init__(self, message="An error occurred."):
+        self.message = message
+        super().__init__(self.message)
+```
+## Testing Error Handling:
+
+### Invalid model name:
+- Purposely set invalid model name in request body.
+```
+curl --location 'http://localhost:8000/send_inference' \
+--header 'Content-Type: application/json' \
+--data '{
+    "model": {
+        "model_name": "wrong_model"
+    },
+    "inference": {
+        "sample_question": {
+            "status": false,
+            "selected_question": 4
+        },
+        "custom_question": {
+            "status": true,
+            "your_question": "Tell me more about his hobbies ?"
+        }
+    }
+}
+'
+```
+- Output: you will see error message and a list of valid model names which are supported.
+```
+{
+    "error": "wrong_model is not supported, please choose model from the list of supported models below",
+    "suppored_models": [
+        "gpt-4",
+        "gpt-4-turbo",
+        "gpt-4-turbo-preview",
+        "gpt-3.5-turbo",
+        "gpt-3.5-turbo-16k",
+        "gpt-3.5-turbo-1106",
+        "louis-gpt-3.5-fined-tune-model",
+        "mock-gpt-model-0701"
+    ]
+}
+```
+### Invalid selection of option:
+- Purposely set both status data fields to true, meaning you want to use sample question and custom question at the same time, making it invalid.
+```
+curl --location 'http://localhost:8000/send_inference' \
+--header 'Content-Type: application/json' \
+--data '{
+    "model": {
+        "model_name": "gpt-4-turbo-preview"
+    },
+    "inference": {
+        "sample_question": {
+            "status": true,
+            "selected_question": 4
+        },
+        "custom_question": {
+            "status": true,
+            "your_question": "Tell me more about his hobbies ?"
+        }
+    }
+}
+'
+```
+- Output: you will see error message as below
+```
+{
+    "error": "You are only allowed to choose either make custom question or pick one from the list of sample questions"
+}
+```
+
+### Set sample question number before inspecting it:
+- Let say, you have re-started the proxy server and send inference request with sample question number, you should be expected to see an error because you have yet to see the list of questions.
+```
+curl --location 'http://localhost:8000/send_inference' \
+--header 'Content-Type: application/json' \
+--data '{
+    "model": {
+        "model_name": "gpt-4-turbo-preview"
+    },
+    "inference": {
+        "sample_question": {
+            "status": true,
+            "selected_question": 4
+        },
+        "custom_question": {
+            "status": false,
+            "your_question": "Tell me more about his hobbies ?"
+        }
+    }
+}
+'
+```
+- Output: you will see error message.
+```
+{
+    "error": "You have not seen the list of sample questions yet, please proceed to look at sample questions and choose one of your interest"
+}
+```
 
 
