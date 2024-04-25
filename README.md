@@ -194,6 +194,22 @@ If all steps are done correctly, at this momment you should see two servers up a
 
 There are two ways you can interact with the application: either using the Postman Graphical User Interface (GUI) or cURL requests.
 
+#### Using Postman GUI:
+
+- Step 1: Download [this Postman requests collection](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/blob/main/gen_ai_app_sap.postman_collection.json) 
+
+- Step 2: Open Postman desktop and import the collection.
+
+<div align="center">
+
+![postmam_1](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/6ddaba91-39f8-46f7-b0a9-65c8743892a1)
+
+</div>
+
+
+
+- Step 3: 
+
 #### Using cURL requests:
 
 ##### 1. Retrieve the list of all supported models:
@@ -558,7 +574,7 @@ curl --location 'http://localhost:8000/send_inference' \
 }
 ```
 
-# Feature Development checklist
+# Features Development checklist
 
 - [x] Backend set-up
 - [x] Route handlers
