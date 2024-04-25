@@ -1,4 +1,4 @@
-![post_man_8](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/67baea2b-d3cd-4beb-a73c-47419706ed02)<!-- Logo of website -->
+<!-- Logo of website -->
 <div align="center">
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/SAP_2011_logo.svg/2560px-SAP_2011_logo.svg.png" width="450px" align="center">
@@ -225,7 +225,7 @@ There are two ways you can interact with the application: either using the Postm
   </div>
 
   - Send inference request:
-    - Specify the model name `gpt-3.5-turbo` and sample question number
+    - Specify the model name `gpt-3.5-turbo` and sample question number, in this ase sample question number is set to 4, which corresponds to `How many programming languages has Louis employed in his projects?`
     <div align="center" width="450px">
 
 ![post_man_4](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/0e6435b5-8128-4a3b-b0f3-f44370704e00)
@@ -233,7 +233,7 @@ There are two ways you can interact with the application: either using the Postm
 
   </div>
 
-  - Specify the model name `louis-gpt-3.5-fined-tune-model` and ask custom question
+  - Specify the model name `louis-gpt-3.5-fined-tune-model` and ask custom question, in this case, we ask `Tell me more about his hobbies ?`
 
     <div align="center" width="450px">
 
@@ -261,7 +261,7 @@ There are two ways you can interact with the application: either using the Postm
 
    - Receive error message when both sample question and custom question mode are both activated
 
-    <div align="center" width="450px">
+  <div align="center" width="450px">
 
 ![post_man_8](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/64897af3-6d38-4caf-b5b4-4cf54533d10f)
 
