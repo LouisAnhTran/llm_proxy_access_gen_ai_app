@@ -645,7 +645,7 @@ curl --location 'http://localhost:8000/send_inference' \
 - [ ] Create k8s resources configuration filees
 - [ ] Deploy to AWS k8s cluster
 
-# Resources
+# Other components:
 
 - exception handling is defined under [/src/proxy/utils/exception.py](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/blob/main/src/proxy/utils/exception.py)
 - OpenAIAPI call is defined under [src/proxy/utils/handle_openai_api_call.py](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/blob/main/src/proxy/utils/handle_openai_api_call.py)
