@@ -109,7 +109,7 @@ If all steps are done correctly, at this momment you should see two servers up a
 
 There are two ways you can interact with the application: either using the Postman Graphical User Interface (GUI) or cURL requests.
 
-#### cURL requests:
+#### Using cURL requests:
 
 ##### 1. Retrieve the list of all supported models:
 - Set up cURL request 
@@ -152,7 +152,7 @@ curl --location http://localhost:8000/get_sample_questions
 # For Linux terminal
 curl --location 'http://localhost:8000/get_sample_questions'
 ```
-- You will see a list of all sample questions for the models. You can simply select a question by its corresponding number, eliminating the need to type out the entire question
+- You will see a list of all sample questions for asking the models. You can simply select a question by its corresponding number, eliminating the need to type out the entire question
 ```
 {
   "response": [
@@ -170,6 +170,90 @@ curl --location 'http://localhost:8000/get_sample_questions'
 }
 ```
 
+##### 3. Send inference request to selected model:
+
+###### 3.1 Send inference request using sample question to OpenAi base models
+In previous step, you can select one question from the list of questions based on its corresponding number.
+For example, question 4 corresponds to question "How many programming languages has Louis employed in his projects?".
+From previous step, you also know the list of supported model, so you can choose one and specify it in the request body, e.g gpt-3.5-turbo-16k.
+Users can make a custom questions or use the sample question, they can explicit specify that in body request, e.g set true in sample question's status field to use sample question and 
+  - Set up cURL request 
+```
+# For windows command prompt
+curl --location --request POST "http://localhost:8000/send_inference" --header "Content-Type: application/json" --data "{\"model\": {\"model_name\": \"gpt-3.5-turbo-16k\"}, \"inference\": {\"sample_question\": {\"status\": true, \"selected_question\": 4}, \"custom_question\": {\"status\": false, \"your_question\": \"Tell me more about his hobbies ?\"}}}"
+
+
+# For Linux terminal
+curl --location 'http://localhost:8000/send_inference' \
+--header 'Content-Type: application/json' \
+--data '{
+    "model": {
+        "model_name": "gpt-3.5-turbo-16k"
+    },
+    "inference": {
+        "sample_question": {
+            "status": true,
+            "selected_question": 4
+        },
+        "custom_question": {
+            "status": false,
+            "your_question": "Tell me more about his hobbies ?"
+        }
+    }
+}
+'
+
+```
+- You will see your selected model name, your prompt (selected sample question) and model's response.
+```
+{
+    "model_name": "gpt-3.5-turbo-16k",
+    "response": {
+        "response": "Louis has employed five programming languages in his projects. The languages he has utilized extensively are Java, Python, Ruby, JavaScript, and C.",
+        "your_question": "How many programming languages has Louis employed in his projects?"
+    }
+}
+```
+
+###### 3.2 Send inference request using sample question to fine-tune model
+The only difference to previous step is you will use fine-tune model instead of OpenAI base models and fine-tune model name is 'louis-gpt-3.5-fined-tune-model'
+  - Set up cURL request 
+```
+# For windows command prompt
+curl --location --request POST "http://localhost:8000/send_inference" --header "Content-Type: application/json" --data "{\"model\": {\"model_name\": \"gpt-3.5-turbo-16k\"}, \"inference\": {\"sample_question\": {\"status\": true, \"selected_question\": 4}, \"custom_question\": {\"status\": false, \"your_question\": \"Tell me more about his hobbies ?\"}}}"
+
+
+# For Linux terminal
+curl --location 'http://localhost:8000/send_inference' \
+--header 'Content-Type: application/json' \
+--data '{
+    "model": {
+        "model_name": "gpt-3.5-turbo-16k"
+    },
+    "inference": {
+        "sample_question": {
+            "status": true,
+            "selected_question": 4
+        },
+        "custom_question": {
+            "status": false,
+            "your_question": "Tell me more about his hobbies ?"
+        }
+    }
+}
+'
+
+```
+- You will see your selected model name, your prompt (selected sample question) and model's response.
+```
+{
+    "model_name": "gpt-3.5-turbo-16k",
+    "response": {
+        "response": "Louis has employed five programming languages in his projects. The languages he has utilized extensively are Java, Python, Ruby, JavaScript, and C.",
+        "your_question": "How many programming languages has Louis employed in his projects?"
+    }
+}
+```
 
 
 
