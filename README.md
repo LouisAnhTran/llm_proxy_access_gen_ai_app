@@ -293,7 +293,7 @@ curl --location 'http://localhost:8000/send_inference' \
 '
 
 ```
-- You will see your selected fine-tune model name, your prompt, which is ""Tell me more about his hobbies ?" in this case and model's response. Keep in mind that the fine-tune model response is not quite accurate due to the lack of training data set. I will continuously expand the training data set as well as retrain the model and hopefully at that time where you send the request, it will return a much more sensible and accurate response. 
+- Expected output  
 ```
 {
     "model_name": "louis-gpt-3.5-fined-tune-model",
@@ -303,6 +303,7 @@ curl --location 'http://localhost:8000/send_inference' \
     }
 }
 ```
+You will see your selected fine-tune model name, your prompt, which is 'Tell me more about his hobbies?' in this case, and the model's response. Please note that the fine-tuned model's response may not be entirely accurate due to the limited training dataset. I will continuously expand the training dataset and retrain the model. Hopefully, by the time you send the request, it will return a much more sensible and accurate response.
 
 ###### 3.3 Send inference request using custom question to mock model
 Let examine the microservices architecture by sending inference request to mock server. Select `mock-gpt-model-0701' as model name in request body.
