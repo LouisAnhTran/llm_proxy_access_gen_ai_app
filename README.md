@@ -72,6 +72,25 @@ for idx,row in df.iterrows():
     all_conversations.append({"messages":list_of_roles})
 ```
 
+Convert the dictionary of conversations into JSON format and dump it into a .jsonl file. This file was then uploaded to OpenAI storage to serve as a seed for the model fine-tuning process
+
+```python
+
+import json
+
+# dumpt conversatio to jsonfile
+with open('instances.jsonl','w') as f:
+    for conversation in all_conversations:
+        json.dump(conversation,f)
+        f.write('\n')
+
+# create client to connect to OpenAI service
+client=openai.OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+
+# upload the json file to OpenAI storage
+with open('instances.jsonl','rb') as f:
+  response=client.files.create(file=f,purpose="fine-tune")
+```
 
 # Getting Started
 
