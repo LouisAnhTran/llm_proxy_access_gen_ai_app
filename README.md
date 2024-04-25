@@ -50,6 +50,10 @@ The diagram provides an overview of the LLM Proxy application architecture, maki
 
 Before deploying the application to an AWS K8s cluster, it's necessary to containerize and dockerize the LLM Proxy application and check its functionality in a Docker virtualized environment. In this setup, as depicted in the diagram, both the Mock model and LLM Proxy are containerized. Clients can access them through the gateway at port 6000 on localhost.
 
+# Fine-tune model implementation:
+
+
+
 # Getting Started
 
 ## Installation 
