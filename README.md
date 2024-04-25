@@ -255,6 +255,44 @@ curl --location 'http://localhost:8000/send_inference' \
 }
 ```
 
+###### 3.3 Send inference request using custom question to mock model
+Let examine the microservices architecture by sending inference request to mock server. Select `mock-gpt-model-0701' as model name in request body.
+  - Set up cURL request 
+```
+# For windows command prompt
+curl --location --request POST "http://localhost:8000/send_inference" --header "Content-Type: application/json" --data "{\"model\": {\"model_name\": \"mock-gpt-model-0701\"}, \"inference\": {\"sample_question\": {\"status\": true, \"selected_question\": 4}, \"custom_question\": {\"status\": false, \"your_question\": \"Tell me more about his hobbies ?\"}}}"
+
+# For Linux terminal
+curl --location 'http://localhost:8000/send_inference' \
+--header 'Content-Type: application/json' \
+--data '{
+    "model": {
+        "model_name": "mock-gpt-model-0701"
+    },
+    "inference": {
+        "sample_question": {
+            "status": true,
+            "selected_question": 4
+        },
+        "custom_question": {
+            "status": false,
+            "your_question": "Tell me more about his hobbies ?"
+        }
+    }
+}
+'
+```
+- You will receive the response from mock model as below.
+```
+{
+    "model_name": "mock-gpt-model-0701",
+    "response": {
+        "response": "Louis is computer science student from Singapore Univerversity of Technology and Design, and this is response generated from mock model",
+        "your_question": "How many programming languages has Louis employed in his projects?"
+    }
+}
+```
+
 # Error handling:
 Many custom exception handlers have been defined to capture any errors that might occur during client-server interaction.
 ## Custom Exception Types:
@@ -396,6 +434,35 @@ curl --location 'http://localhost:8000/send_inference' \
 ```
 {
     "error": "You have not seen the list of sample questions yet, please proceed to look at sample questions and choose one of your interest"
+}
+```
+
+### Invalid sample question number:
+- Set up this request with the sample question number set to 100
+```
+curl --location 'http://localhost:8000/send_inference' \
+--header 'Content-Type: application/json' \
+--data '{
+    "model": {
+        "model_name": "gpt-4-turbo-preview"
+    },
+    "inference": {
+        "sample_question": {
+            "status": true,
+            "selected_question": 100
+        },
+        "custom_question": {
+            "status": false,
+            "your_question": "Tell me more about his hobbies ?"
+        }
+    }
+}
+'
+```
+- Output: you will see error message as below
+```
+{
+    "error": "The question number 100 you entered is not valid, valid question number range from 1 to 10"
 }
 ```
 
