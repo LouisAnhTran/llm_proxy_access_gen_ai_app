@@ -194,87 +194,6 @@ If all steps are done correctly, at this momment you should see two servers up a
 
 There are two ways you can interact with the application: either using the Postman Graphical User Interface (GUI) or cURL requests.
 
-#### Using Postman GUI:
-
-- Step 1: Download [this Postman requests collection](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/blob/main/gen_ai_app_sap.postman_collection.json) 
-
-- Step 2: Open Postman desktop and import the collection.
-
-<div align="center">
-
-![postmam_1](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/6ddaba91-39f8-46f7-b0a9-65c8743892a1)
-
-</div>
-
-- Step 3: Test requests
-
-  - Get list of supported models:
-  
-  <div align="center" width="450px">
-
-  ![post_man2](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/6efcbec2-5510-4ebd-8eda-4c79768ecfc6)
-
-  </div>
-
-  - Get list of sample question:
-  
-  <div align="center" width="450px">
-
-![post_man_3](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/7adefc4e-3fd5-4708-b7a4-a5d38d051f65)
-
-  </div>
-
-  - Send inference request:
-    - Specify the model name `gpt-3.5-turbo` and sample question number, in this ase sample question number is set to 4, which corresponds to `How many programming languages has Louis employed in his projects?`
-    <div align="center" width="450px">
-
-![post_man_4](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/0e6435b5-8128-4a3b-b0f3-f44370704e00)
-
-
-  </div>
-
-  - Specify the model name `louis-gpt-3.5-fined-tune-model` and ask custom question, in this case, we ask `Tell me more about his hobbies ?`
-
-    <div align="center" width="450px">
-
-
-![post_man_5](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/2d2b725c-d5ba-4331-a557-a5d50b1f26db)
-
-
-  </div>
-
-  - Specify the model name `mock-gpt-model-0701` to test mock model
-
-    <div align="center" width="450px">
-
-![post_man_6](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/b607964a-6455-4979-808e-5331b69203ab)
-
-  </div>
-
-  - Receive error message when providing invalid model name
-
-    <div align="center" width="450px">
-
-![post_man_7](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/5a8f5e8c-34c8-479a-9b2b-5f3aaaa38c3f)
-
-  </div>
-
-   - Receive error message when both sample question and custom question mode are both activated
-
-  <div align="center" width="450px">
-
-![post_man_8](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/64897af3-6d38-4caf-b5b4-4cf54533d10f)
-
-  </div>
-
-  
-
-  
-    
-
-  
-
-
 #### Using cURL requests:
 
 ##### 1. Retrieve the list of all supported models:
@@ -465,6 +384,79 @@ curl --location 'http://localhost:8000/send_inference' \
 ![mock_server](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/3a0cf14d-d599-4c1b-90a4-3596070ef258)
 
 </div>
+
+#### Using Postman GUI:
+
+- Step 1: Download [this Postman requests collection](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/blob/main/gen_ai_app_sap.postman_collection.json) 
+
+- Step 2: Open Postman desktop and import the collection.
+
+<div align="center">
+
+![postmam_1](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/6ddaba91-39f8-46f7-b0a9-65c8743892a1)
+
+</div>
+
+- Step 3: Test requests
+
+  - Get list of supported models
+  
+  <div align="center" width="450px">
+
+  ![post_man2](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/6efcbec2-5510-4ebd-8eda-4c79768ecfc6)
+
+  </div>
+
+  - Get list of sample question
+  
+  <div align="center" width="450px">
+
+![post_man_3](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/7adefc4e-3fd5-4708-b7a4-a5d38d051f65)
+
+  </div>
+
+  - Send inference request
+    - Specify the model name `gpt-3.5-turbo` and sample question number, in this case, the sample question number is set to 4, which corresponds to `How many programming languages has Louis employed in his projects?`
+    <div align="center" width="450px">
+
+![post_man_4](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/0e6435b5-8128-4a3b-b0f3-f44370704e00)
+
+
+  </div>
+
+  - Specify the model name `louis-gpt-3.5-fined-tune-model` and ask custom question, in this case, we ask `Tell me more about his hobbies ?`
+
+    <div align="center" width="450px">
+
+
+![post_man_5](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/2d2b725c-d5ba-4331-a557-a5d50b1f26db)
+
+
+  </div>
+
+  - Specify the model name `mock-gpt-model-0701` to test mock model
+
+    <div align="center" width="450px">
+
+![post_man_6](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/b607964a-6455-4979-808e-5331b69203ab)
+
+  </div>
+
+  - Receive error message when providing invalid model name
+
+    <div align="center" width="450px">
+
+![post_man_7](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/5a8f5e8c-34c8-479a-9b2b-5f3aaaa38c3f)
+
+  </div>
+
+   - Receive error message when both sample question and custom question mode are both activated
+
+  <div align="center" width="450px">
+
+![post_man_8](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/64897af3-6d38-4caf-b5b4-4cf54533d10f)
+
+  </div>
 
 # Error handling:
 Many custom exception handlers have been defined to capture any errors that might occur during client-server interaction.
