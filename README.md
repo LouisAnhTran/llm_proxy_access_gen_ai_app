@@ -1,4 +1,4 @@
-<!-- Logo of website -->
+![post_man_8](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/67baea2b-d3cd-4beb-a73c-47419706ed02)<!-- Logo of website -->
 <div align="center">
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/SAP_2011_logo.svg/2560px-SAP_2011_logo.svg.png" width="450px" align="center">
@@ -250,6 +250,26 @@ There are two ways you can interact with the application: either using the Postm
 ![post_man_6](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/b607964a-6455-4979-808e-5331b69203ab)
 
   </div>
+
+  - Receive error message when providing invalid model name
+
+    <div align="center" width="450px">
+
+![post_man_7](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/5a8f5e8c-34c8-479a-9b2b-5f3aaaa38c3f)
+
+  </div>
+
+   - Receive error message when both sample question and custom question mode are both activated
+
+    <div align="center" width="450px">
+
+![post_man_8](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/64897af3-6d38-4caf-b5b4-4cf54533d10f)
+
+  </div>
+
+  
+
+  
     
 
   
