@@ -92,6 +92,42 @@ with open('instances.jsonl','rb') as f:
   response=client.files.create(file=f,purpose="fine-tune")
 ```
 
+# OpenAI API Call 
+
+You can refer to this file for detailed implementation of OpenAI API call with error handling. Below is the code performing OpenAI API call when user select sample question from the provided list.
+
+```python
+def handle_sample_question_inference(candidate_question_object: CandidateQuestion.CandidateQuestion,model_name,question_number):
+    final_model_name=config.FINE_TUNED_MODEL_NAME if "louis" in model_name else model_name
+
+    client=openai.OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+
+    sample_question=candidate_question_object.get_question_from_index(question_number-1)
+
+    final_prompt=refine_prompt_for_custom_question(sample_question) if not helpers.check_if_fined_tune_model(final_model_name) else sample_question
+
+    if "mock" in final_model_name:
+        response=get_mock_model_response()
+        return response
+
+    try:
+        # make api call
+        completion = client.chat.completions.create(
+        model=final_model_name,
+        messages=[
+            {"role": "system", "content": config.SYSTEM_PROMPT},
+            {"role": "user", "content": final_prompt}
+            ])
+        
+        print("Open ai response: ",completion.choices[0].message.content)
+
+        return completion.choices[0].message.content
+    except Exception as e:
+        raise exception.ErrorSendingInferenceOpenAIModel(f"Error when sending inference to {model_name}, please try again")
+
+```
+
+
 # Getting Started
 
 ## Installation 
