@@ -48,6 +48,8 @@ The diagram provides an overview of the LLM Proxy application architecture, maki
 
 </div>
 
+Before deploying the application to an AWS K8s cluster, it's necessary to containerize and dockerize the LLM Proxy application and check its functionality in a Docker virtualized environment. In this setup, as depicted in the diagram, both the Mock model and LLM Proxy are containerized. Clients can access them through the gateway at port 6000 on localhost.
+
 # Getting Started
 
 ## Installation 
@@ -181,7 +183,7 @@ curl --location 'http://localhost:8000/get_sample_questions'
 In previous step, you can select one question from the list of questions based on its corresponding number.
 For example, question 4 corresponds to question "How many programming languages has Louis employed in his projects?".
 From previous step, you also know the list of supported model, so you can choose one and specify it in the request body, e.g gpt-3.5-turbo-16k.
-Users can make a custom questions or use the sample question, they can explicit specify that in body request, e.g set true in sample question's status field to use sample question and vice versa. 
+Users can make a custom questions or use the sample question, they can explicitly specify that in body request, e.g set true in sample question's status field to use sample question and vice versa. 
   - Set up cURL request 
 ```
 # For windows command prompt
