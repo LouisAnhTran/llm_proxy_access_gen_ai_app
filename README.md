@@ -206,9 +206,46 @@ There are two ways you can interact with the application: either using the Postm
 
 </div>
 
+- Step 3: Test requests
+
+  - Get list of supported models:
+  
+  <div align="center" width="450px">
+
+  ![post_man2](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/6efcbec2-5510-4ebd-8eda-4c79768ecfc6)
+
+  </div>
+
+  - Get list of sample question:
+  
+  <div align="center" width="450px">
+
+![post_man_3](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/7adefc4e-3fd5-4708-b7a4-a5d38d051f65)
+
+  </div>
+
+  - Send inference request:
+    - Specify the model name `gpt-3.5-turbo` and sample question number
+    <div align="center" width="450px">
+
+![post_man_4](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/0e6435b5-8128-4a3b-b0f3-f44370704e00)
 
 
-- Step 3: 
+  </div>
+
+  - Specify the model name `louis-gpt-3.5-fined-tune-model` and ask custom question
+
+    <div align="center" width="450px">
+
+
+![post_man_5](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/2d2b725c-d5ba-4331-a557-a5d50b1f26db)
+
+
+  </div>
+    
+
+  
+
 
 #### Using cURL requests:
 
