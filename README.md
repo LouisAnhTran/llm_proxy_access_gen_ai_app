@@ -292,6 +292,12 @@ curl --location 'http://localhost:8000/send_inference' \
     }
 }
 ```
+- Expected log from mock-model server
+<div align="center">
+
+![mock_server](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/3a0cf14d-d599-4c1b-90a4-3596070ef258)
+
+</div>
 
 # Error handling:
 Many custom exception handlers have been defined to capture any errors that might occur during client-server interaction.
