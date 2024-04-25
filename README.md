@@ -655,7 +655,7 @@ curl --location 'http://localhost:8000/send_inference' \
 
 # References
 
-https://platform.openai.com/docs/guides/fine-tuning
-https://flask.palletsprojects.com/en/3.0.x/
+- https://platform.openai.com/docs/guides/fine-tuning
+- https://flask.palletsprojects.com/en/3.0.x/
 
 
