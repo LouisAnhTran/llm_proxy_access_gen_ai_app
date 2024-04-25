@@ -94,7 +94,7 @@ with open('instances.jsonl','rb') as f:
 
 # OpenAI API Call 
 
-You can refer to this file for detailed implementation of OpenAI API call with error handling. Below is the code performing OpenAI API call when user select sample question from the provided list.
+You can refer to [this file](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/blob/main/src/proxy/utils/handle_openai_api_call.py) for detailed implementation of OpenAI API call with error handling. Below is the code performing OpenAI API call when user select sample question from the provided list.
 
 ```python
 def handle_sample_question_inference(candidate_question_object: CandidateQuestion.CandidateQuestion,model_name,question_number):
