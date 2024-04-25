@@ -144,6 +144,31 @@ curl --location 'http://localhost:8000/get_suppored_models'
 
 ##### 2. Retrieve the list of all sample questions:
 
+- Set up cURL request 
+```
+# For windows command prompt
+curl --location http://localhost:8000/get_sample_questions
+
+# For Linux terminal
+curl --location 'http://localhost:8000/get_sample_questions'
+```
+- You will see a list of all sample questions for the models. You can simply select a question by its corresponding number, eliminating the need to type out the entire question
+```
+{
+  "response": [
+    "question 1: What is the candidate name?",
+    "question 2: Tell me fun fact about Louis?",
+    "question 3: Which university does Louis or Tran Cong Nam Anh or Nam Anh come from ?",
+    "question 4: How many programming languages has Louis employed in his projects?",
+    "question 5: Please provide a list of the software development projects Louis completed and detail his roles in each of these projects.",
+    "question 6: What were the job responsibilities that Louis undertook during his previous internship at SAP AI Labs Singapore with the AI Workbench team?",
+    "question 7: What is his current CGPA as well as his academic achievements?",
+    "question 8: What sports can Louis play  ?",
+    "question 9: When is his birthday ?",
+    "question 10: What is his  favorite football club and his favorite football player?"
+  ]
+}
+```
 
 
 
