@@ -25,7 +25,7 @@ The project concerns designing and developing the Gen AI application, capable of
 </div>
 
 
-This application uses 8 models, which are classified into 3 groups: fine-tuned models, mock models, and OpenAI base models. The fine-tuned model was trained using raw training data sets, which can be found [training data set](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/blob/main/src/training_data_set.xlsx). 
+This application uses 8 models, which are classified into 3 groups: fine-tuned models, mock models, and OpenAI base models. The fine-tuned model was trained using [raw training data set](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/blob/main/src/training_data_set.xlsx). 
 In terms of speed, the fine-tuned model consumes less time to generate a response because it was trained based on the training data, thus requiring no prompt refinement. Conversely, for the OpenAI base models to generate specific responses related to candidate Louis, prompt refinement was necessary to provide relevant context. Consequently, the prompt eventually becomes much larger than the user's original prompt, causing the model to take longer to process the prompt and learn context.
 To achieve the desired level of accuracy with the fine-tuned model, it's necessary to seed a substantial training dataset, ideally comprising at least 1000 rows of conversation. However, due to time constraints, only 10 instances of training conversations were introduced to the fine-tuning process. Consequently, the accuracy of the fine-tuned model's responses is significantly impacted. I am closely monitoring this situation and continuously adding more training conversations to expand the training dataset.
 
