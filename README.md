@@ -39,8 +39,8 @@ To achieve the desired level of accuracy with the fine-tuned model, it's necessa
 
 </div>
 
-
-## Docker virtualized environment:
+The diagram provides an overview of the LLM Proxy application architecture, making it intuitive to understand the flow of request traffic and data. The LLM Proxy receives the client request, inspects the request body to retrieve the model name, and then sends an inference request to the model of interest. While the fine-tuned model and OpenAI base models are deployed on the OpenAI model hosting platform, the mock model runs locally
+## Docker virtualized environment
 
 <div align="center">
 
