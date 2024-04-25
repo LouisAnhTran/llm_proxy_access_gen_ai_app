@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "f866a3b9-af2f-4d49-ba51-d8c799044a64",
+		"name": "gen_ai_app_sap",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30355045"
+	},
+	"item": [
+		{
+			"name": "send_inference",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"model\": {\r\n        \"model_name\": \"gpt-3.5-turbo\"\r\n    },\r\n    \"inference\": {\r\n        \"sample_question\": {\r\n            \"status\": true,\r\n            \"selected_question\": 4\r\n        },\r\n        \"custom_question\": {\r\n            \"status\": false,\r\n            \"your_question\": \"Tell me more about his hobbies ?\"\r\n        }\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/send_inference",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"send_inference"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_list_of_candidate_questions",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/get_sample_questions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"get_sample_questions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_list_of_supported_models",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/get_suppored_models",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"get_suppored_models"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
