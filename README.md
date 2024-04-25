@@ -37,3 +37,11 @@ The project concerns designing and developing the Gen AI application, capable of
 
 ## Docker virtualized environment:
 
+<div align="center">
+
+![architecture_2 jpg](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/cf9b33ca-9697-409a-814f-bb6a61d5aa2e)
+
+</div>
+
+# Getting Started
+
