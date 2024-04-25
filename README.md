@@ -45,3 +45,107 @@ The project concerns designing and developing the Gen AI application, capable of
 
 # Getting Started
 
+## Installation 
+
+### 1. Clone the remote repo:
+
+Clone the project remote repo to your local machine using the following command in your terminal or command line prompt.
+
+```
+git clone https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap.git
+```
+
+### 2. Change directory to main proxy folder 
+
+```
+cd src
+```
+
+### 3. Install required packpages
+
+In order to run the application, we need to install the following packages:
+
+```
+openai
+pandas
+openpyxl
+python-dotenv
+requests
+```
+
+Simply run the following command to install all required packages
+
+```
+pip install -r requirements.txt
+```
+
+# Run The Application $ Sending Inference Request 
+
+## Local Development 
+
+### Run the application:
+
+- After installing all packages, navigate up one directory level
+```
+cd ../
+```
+- Run the proxy application in localhost port 8000
+``` python
+python src/app.py
+```
+- Open the second terminal and run the mock model server in localhost port 5050
+``` python
+python mock_server/main.py
+```
+If all steps are done correctly, at this momment you should see two servers up and running in two separate terminals as belows:
+
+<div align="center">
+
+![correct_2_terminals](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/assets/110736617/e424504f-54ad-479c-a02b-0d051eda57ae)
+
+</div>
+
+### Send inference request:
+
+There are two ways you can interact with the application: either using the Postman Graphical User Interface (GUI) or cURL requests.
+
+#### cURL requests:
+
+##### 1. Retrieve the list of all supported models:
+- Set up cURL request 
+```
+# For windows command prompt
+curl --location http://localhost:8000/get_suppored_models
+
+# For Linux terminal
+curl --location 'http://localhost:8000/get_suppored_models'
+```
+- You will see there are 8 models classified into 3 groups, namely fine-tune model, mock model and openai based models.
+```
+{
+    "message": {
+        "fined_tune_model": [
+            "louis-gpt-3.5-fined-tune-model"
+        ],
+        "mock_model": [
+            "mock-gpt-model-0701"
+        ],
+        "open_ai_models": [
+            "gpt-4",
+            "gpt-4-turbo",
+            "gpt-4-turbo-preview",
+            "gpt-3.5-turbo",
+            "gpt-3.5-turbo-16k",
+            "gpt-3.5-turbo-1106"
+        ]
+    }
+}
+```
+
+##### 2. Retrieve the list of all sample questions:
+
+
+
+
+
+
