@@ -558,4 +558,16 @@ curl --location 'http://localhost:8000/send_inference' \
 }
 ```
 
+# Feature Development checklist
 
+- [x] Backend set-up
+- [x] Route handlers
+- [x] OpenAI API call handler
+- [x] Fine-tune GPT-3.5-turbo
+- [ ] Expand the training dataset
+- [ ] Design and implement user interface
+- [ ] Create Docker files, Docker compose files
+- [ ] Testing in Docker environment
+- [ ] Deploy to Minikube
+- [ ] Create k8s resources configuration filees
+- [ ] Deploy to AWS k8s cluster 
