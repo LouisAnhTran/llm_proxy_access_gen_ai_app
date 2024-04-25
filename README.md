@@ -50,8 +50,9 @@ The diagram provides an overview of the LLM Proxy application architecture, maki
 
 Before deploying the application to an AWS K8s cluster, it's necessary to containerize and dockerize the LLM Proxy application and check its functionality in a Docker virtualized environment. In this setup, as depicted in the diagram, both the Mock model and LLM Proxy are containerized. Clients can access them through the gateway at port 6000 on localhost.
 
-# Fine-tune model implementation:
+# Fine tuning GPT-3.5-turbo model:
 
+This file [fine_tune_model](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/blob/main/fine_tune_model.ipynb) contain the logic for fine tuning the GPT-3.5-Turbo based on the training data set in xlsx format [training data set](https://github.com/LouisAnhTran/llm_proxy_access_gen_ai_sap/blob/main/src/training_data_set.xlsx).
 
 
 # Getting Started
